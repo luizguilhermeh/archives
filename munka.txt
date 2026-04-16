@@ -1,0 +1,1461 @@
+<html><head>
+    <title>Munka 2.0</title>
+
+    
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta name="description" content="">
+        <meta name="author" content="">
+    
+
+    
+    
+        <link rel="shortcut icon" href="/static/favicon.ico/" type="image/x-icon">
+        <link rel="icon" href="/static/favicon.ico" type="image/x-icon">
+        <link href="/static/appbuilder/css/bootstrap.min.css" rel="stylesheet">
+        <link href="/static/appbuilder/css/font-awesome.min.css" rel="stylesheet">
+        
+        <link href="/static/appbuilder/datepicker/bootstrap-datepicker.css" rel="stylesheet">
+        <link href="/static/appbuilder/select2/select2.css" rel="stylesheet">
+        <link href="/static/appbuilder/css/flags/flags16.css" rel="stylesheet">
+        <link href="/static/appbuilder/css/ab.css" rel="stylesheet">
+    
+    <link rel="stylesheet" href="/static/css/main.css" type="text/css">
+
+
+    
+        <script src="/static/appbuilder/js/jquery-latest.js"></script>
+        <script src="/static/appbuilder/js/ab_filters.js"></script>
+        <script src="/static/appbuilder/js/ab_actions.js"></script>
+    
+</head>
+<body>
+
+    <div class="modal fade" id="modal-confirm" tabindex="-1" role="dialog">
+    <div class="modal-dialog modal-sm">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h4 class="modal-title" id="myModalLabel">
+                User confirmation needed
+                </h4>
+            </div>
+            <div class="modal-body">
+                <div class="modal-text"></div>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-default" data-dismiss="modal">Cancel</button>
+                <a href="#" id="modal-confirm-ok" class="btn btn-danger danger" data-original-title="" title="">OK</a>
+            </div>
+        </div>
+    </div>
+</div>
+    <div class="modal fade" id="modal-alert" tabindex="-1" role="dialog">
+    <div class="modal-dialog modal-sm">
+        <div class="modal-content">
+            <div class="modal-body">
+                <div><h4 class="modal-text"></h4></div>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-default" data-dismiss="modal">OK</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+    
+        <header class="top" role="header">
+            
+
+
+
+
+
+<div class="navbar navbar-inverse" role="navigation">
+   <div class="container">
+        <div class="navbar-header">
+            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            
+                <span class="navbar-brand">
+                <a href="/" data-original-title="" title="">
+                Munka 2.0
+                </a>
+                </span>
+                            
+        </div>
+        <div class="navbar-collapse collapse">
+            <ul class="nav navbar-nav">
+                
+
+
+
+    
+
+    
+        
+            <li class="dropdown">
+            <a class="dropdown-toggle" data-toggle="dropdown" href="javascript:void(0)" data-original-title="" title="">
+            
+            Dashboards<b class="caret"></b></a>
+            <ul class="dropdown-menu">
+            
+                
+                    
+                        <li>
+    <a tabindex="-1" href="/" data-original-title="" title="">
+       
+    Kanban de Tarefas</a>
+</li>
+                    
+                
+            
+                
+                    
+                        <li>
+    <a tabindex="-1" href="/kanban_projetos" data-original-title="" title="">
+       
+    Kanban de  Projetos</a>
+</li>
+                    
+                
+            
+                
+                    
+                
+            
+                
+                    
+                        <li>
+    <a tabindex="-1" href="/dashboardatividadesview/dashboardatividades" data-original-title="" title="">
+       
+    Atividades e Horas</a>
+</li>
+                    
+                
+            
+                
+                    
+                
+            
+                
+                    
+                        <li>
+    <a tabindex="-1" href="/dashboardfaturamentoview/faturamento/" data-original-title="" title="">
+       
+    Faturas</a>
+</li>
+                    
+                
+            
+                
+                    
+                        <li>
+    <a tabindex="-1" href="/dashboardsimulacaofaturaview/simulacao/" data-original-title="" title="">
+       
+    Simulação Fatura</a>
+</li>
+                    
+                
+            
+                
+                    
+                
+            
+            </ul></li>
+        
+    
+
+    
+        
+            <li class="dropdown">
+            <a class="dropdown-toggle" data-toggle="dropdown" href="javascript:void(0)" data-original-title="" title="">
+            
+            Estrutura<b class="caret"></b></a>
+            <ul class="dropdown-menu">
+            
+                
+                    
+                
+            
+                
+                    
+                
+            
+                
+                    
+                        <li>
+    <a tabindex="-1" href="/coordenacaomodelview/list/" data-original-title="" title="">
+       
+    Coordenações</a>
+</li>
+                    
+                
+            
+                
+                    
+                        <li>
+    <a tabindex="-1" href="/cargomodelview/list/" data-original-title="" title="">
+       
+    Cargos</a>
+</li>
+                    
+                
+            
+                
+                    
+                        <li>
+    <a tabindex="-1" href="/nivelmodelview/list/" data-original-title="" title="">
+       
+    Níveis</a>
+</li>
+                    
+                
+            
+            </ul></li>
+        
+    
+
+    
+        
+            <li class="dropdown">
+            <a class="dropdown-toggle" data-toggle="dropdown" href="javascript:void(0)" data-original-title="" title="">
+            
+            Catálogo de Serviços<b class="caret"></b></a>
+            <ul class="dropdown-menu">
+            
+                
+                    
+                
+            
+                
+                    
+                
+            
+                
+                    
+                        <li>
+    <a tabindex="-1" href="/complexidademodelview/list/" data-original-title="" title="">
+       
+    Complexidades</a>
+</li>
+                    
+                
+            
+                
+                    
+                        <li>
+    <a tabindex="-1" href="/servicomodelview/list/" data-original-title="" title="">
+       
+    Servicos</a>
+</li>
+                    
+                
+            
+                
+                    
+                        <li>
+    <a tabindex="-1" href="/regramodelview/list/" data-original-title="" title="">
+       
+    Regras</a>
+</li>
+                    
+                
+            
+            </ul></li>
+        
+    
+
+    
+        
+            <li class="dropdown">
+            <a class="dropdown-toggle" data-toggle="dropdown" href="javascript:void(0)" data-original-title="" title="">
+            
+            Atividades<b class="caret"></b></a>
+            <ul class="dropdown-menu">
+            
+                
+                    
+                        <li>
+    <a tabindex="-1" href="/produtomodelview/list/" data-original-title="" title="">
+       
+    Produtos</a>
+</li>
+                    
+                
+            
+                
+                    
+                        <li>
+    <a tabindex="-1" href="/projetomodelview/list/" data-original-title="" title="">
+       
+    Projetos</a>
+</li>
+                    
+                
+            
+                
+                    
+                
+            
+                
+                    
+                
+            
+                
+                    
+                
+            
+                
+                    
+                        <li>
+    <a tabindex="-1" href="/sprintmodelview/list/" data-original-title="" title="">
+       
+    Sprints</a>
+</li>
+                    
+                
+            
+                
+                    
+                
+            
+                
+                    
+                        <li>
+    <a tabindex="-1" href="/statusmodelview/list/" data-original-title="" title="">
+       
+    Status</a>
+</li>
+                    
+                
+            
+                
+                    
+                
+            
+                
+                    
+                
+            
+                
+                    
+                        <li>
+    <a tabindex="-1" href="/etiquetamodelview/list/" data-original-title="" title="">
+       
+    Etiquetas</a>
+</li>
+                    
+                
+            
+                
+                    
+                        <li>
+    <a tabindex="-1" href="/comentariomodelview/list/" data-original-title="" title="">
+       
+    Comentarios</a>
+</li>
+                    
+                
+            
+                
+                    
+                        <li>
+    <a tabindex="-1" href="/tarefamodelview/list/" data-original-title="" title="">
+       
+    Todas as tarefas</a>
+</li>
+                    
+                
+            
+                
+                    
+                        <li>
+    <a tabindex="-1" href="/minhastarefamodelview/list/" data-original-title="" title="">
+       
+    Minhas tarefas</a>
+</li>
+                    
+                
+            
+            </ul></li>
+        
+    
+
+    
+        
+            <li class="dropdown">
+            <a class="dropdown-toggle" data-toggle="dropdown" href="javascript:void(0)" data-original-title="" title="">
+            
+            Faturamento<b class="caret"></b></a>
+            <ul class="dropdown-menu">
+            
+                
+                    
+                
+            
+                
+                    
+                
+            
+                
+                    
+                        <li>
+    <a tabindex="-1" href="/contratomodelview/list/" data-original-title="" title="">
+       
+    Contrato</a>
+</li>
+                    
+                
+            
+                
+                    
+                        <li>
+    <a tabindex="-1" href="/fatorcomplexidadeustmodelview/list/" data-original-title="" title="">
+       
+    Fator de Complexidade e UST</a>
+</li>
+                    
+                
+            
+                
+                    
+                        <li>
+    <a tabindex="-1" href="/faturamodelview/list/" data-original-title="" title="">
+       
+    Faturas</a>
+</li>
+                    
+                
+            
+            </ul></li>
+        
+    
+
+            <li>
+  <a href="/tarefamodelview/list/?_flt_1_data_fim=2026-03-31 23:59:59&amp;_flt_2_data_fim=2026-05-01 00:00:00&amp;_flt_1_projeto=426&amp;_flt_1_projeto=434&amp;_flt_0_responsavel=139" title=""> Mês Atual</a>
+  </li></ul>
+            <ul class="nav navbar-nav navbar-right">
+                <!-- sobreesscrito para incluir contrato atual após nome do usuario logado -->
+
+
+
+
+
+
+
+
+
+
+
+    <li class="dropdown">
+        <a class="dropdown-toggle" data-toggle="dropdown" href="#" data-original-title="" title="">
+          <span class="fa fa-user"></span> Luiz G.
+          <span class="badge badge-secondary contrato-atual">015/2023 - GETEC</span>
+          <b class="caret"></b>
+        </a>
+        <ul class="dropdown-menu">
+            <li><a href="/users/userinfo/" data-original-title="" title=""><span class="fa fa-fw fa-user"></span>Perfil</a></li>
+            <li><a href="/logout/" data-original-title="" title=""><span class="fa fa-fw fa-sign-out"></span>Desconectar</a></li>
+        </ul>
+    </li>
+
+            </ul>
+        </div>
+   </div>
+</div>
+        </header>
+    
+
+    <div class="container-fluid espacamento">
+        <div class="row">
+            
+                
+    
+
+            
+            
+
+<div class="panel panel-primary ">
+    <div class="panel-heading">
+      <h4 class="panel-title">Todos as Serviços</h4>
+    </div>
+  <div class="panel-body">
+
+
+    
+        
+<div class="panel-group" id="accordion1">
+    <div class="panel panel-default">
+        <div class="panel-heading">
+            <h4 class="panel-title">
+                <a class="accordion-toggle" data-toggle="collapse" data-parent="#accordion1" href="#accordion1_href" data-original-title="" title="">Pesquisar<span class="caret"></span></a>
+            </h4>
+        </div>
+        
+            <div id="accordion1_href" class="panel-collapse collapse">
+                
+                <div class="panel-body">
+                    
+            
+
+<form id="filter_form" class="form-search" method="get">
+
+    <div class="btn-group">
+        <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown">
+        Incluir filtro
+      <span class="caret"></span>
+        </button>
+        <ul class="dropdown-menu">
+            
+            <li><a href="javascript:void(0)" name="contrato" class="filter" onclick="return false;" data-original-title="" title="">
+                Contrato</a>
+            </li>
+            
+            <li><a href="javascript:void(0)" name="nome" class="filter" onclick="return false;" data-original-title="" title="">
+                Nome</a>
+            </li>
+            
+            <li><a href="javascript:void(0)" name="escopo" class="filter" onclick="return false;" data-original-title="" title="">
+                Escopo</a>
+            </li>
+            
+            <li><a href="javascript:void(0)" name="entregaveis" class="filter" onclick="return false;" data-original-title="" title="">
+                Entregaveis</a>
+            </li>
+            
+            <li><a href="javascript:void(0)" name="atividades" class="filter" onclick="return false;" data-original-title="" title="">
+                Atividades</a>
+            </li>
+            
+            <li><a href="javascript:void(0)" name="faturavel" class="filter" onclick="return false;" data-original-title="" title="">
+                Faturavel</a>
+            </li>
+            
+        </ul>
+    </div>
+
+    <table class="table table-responsive table-hover filters">
+        <tbody>
+
+        </tbody>
+    </table>
+
+
+    <button type="submit" class="btn  btn-sm btn-primary">Pesquisar
+        <i class="fa fa-search"></i>
+    </button>
+
+</form>
+
+<script>
+	(function($) {
+	var filter = new AdminFilters(
+                    '#filter_form',
+                    {"atividades": "Atividades", "contrato": "Contrato", "entregaveis": "Entregaveis", "escopo": "Escopo", "faturavel": "Faturavel", "nome": "Nome"},
+                    {"atividades": "\u003cinput class=\"form-control\" id=\"atividades\" name=\"atividades\" placeholder=\"Atividades\" required type=\"text\" value=\"\"\u003e", "contrato": "\u003cselect class=\"my_select2 form-control\" data-placeholder=\"Select Value\" id=\"contrato\" name=\"contrato\" style=\"width:250px\"\u003e\u003coption selected value=\"__None\"\u003e\u003c/option\u003e\u003coption value=\"2\"\u003e015/2023 - GETEC\u003c/option\u003e\u003coption value=\"1\"\u003e058/2022 - GEIN\u003c/option\u003e\u003coption value=\"3\"\u003e013/2023 - GESAD\u003c/option\u003e\u003coption value=\"4\"\u003e093/2025 - SUTIS\u003c/option\u003e\u003c/select\u003e", "entregaveis": "\u003cinput class=\"form-control\" id=\"entregaveis\" name=\"entregaveis\" placeholder=\"Entregaveis\" required type=\"text\" value=\"\"\u003e", "escopo": "\u003cinput class=\"form-control\" id=\"escopo\" name=\"escopo\" placeholder=\"Escopo\" required type=\"text\" value=\"\"\u003e", "faturavel": "\u003cinput checked id=\"faturavel\" name=\"faturavel\" type=\"checkbox\" value=\"y\"\u003e", "nome": "\u003cinput class=\"form-control\" id=\"nome\" name=\"nome\" placeholder=\"Nome\" required type=\"text\" value=\"\"\u003e"},
+                    {"atividades": ["Come\u00e7a com", "Termina com", "Cont\u00eam", "Igual a", "N\u00e3o come\u00e7a com", "N\u00e3o termina com", "N\u00e3o cont\u00eam", "Diferente de"], "contrato": ["Rela\u00e7\u00e3o", "Sem rela\u00e7\u00e3o"], "entregaveis": ["Come\u00e7a com", "Termina com", "Cont\u00eam", "Igual a", "N\u00e3o come\u00e7a com", "N\u00e3o termina com", "N\u00e3o cont\u00eam", "Diferente de"], "escopo": ["Come\u00e7a com", "Termina com", "Cont\u00eam", "Igual a", "N\u00e3o come\u00e7a com", "N\u00e3o termina com", "N\u00e3o cont\u00eam", "Diferente de"], "faturavel": ["Igual a", "Diferente de"], "nome": ["Come\u00e7a com", "Termina com", "Cont\u00eam", "Igual a", "N\u00e3o come\u00e7a com", "N\u00e3o termina com", "N\u00e3o cont\u00eam", "Diferente de"]},
+                    []
+                );
+	})(jQuery);
+
+</script>
+        
+                </div>
+            </div>
+        </div>
+    </div>
+
+    
+
+    
+        <div>
+            <!---- Template sobrescrito habilitar renderização de HTML com |safe -->
+
+
+
+
+
+
+
+
+
+<div class="well well-sm">
+    
+        
+    
+
+      
+    
+    
+    <ul class="pagination pagination-sm" style="display:inherit;">
+
+        
+        
+        
+
+        
+            
+        
+        
+
+        
+            
+        
+        
+
+    
+    <li class="disabled">
+        <a href="javascript:void(0)" data-original-title="" title="">«</a>
+    </li>
+    
+    
+    <li class="disabled">
+        <a href="javascript:void(0)" data-original-title="" title="">&lt;</a>
+    </li>
+    
+
+    
+        
+        <li class="active">
+            <a href="javascript:void(0)" data-original-title="" title="">1</a>
+        </li>
+        
+    
+        
+        <li>
+            <a href="/servicomodelview/list/?page_ServicoModelView=1" data-original-title="" title="">2</a>
+        </li>
+        
+    
+        
+        <li>
+            <a href="/servicomodelview/list/?page_ServicoModelView=2" data-original-title="" title="">3</a>
+        </li>
+        
+    
+        
+        <li>
+            <a href="/servicomodelview/list/?page_ServicoModelView=3" data-original-title="" title="">4</a>
+        </li>
+        
+    
+        
+        <li>
+            <a href="/servicomodelview/list/?page_ServicoModelView=4" data-original-title="" title="">5</a>
+        </li>
+        
+    
+        
+        <li>
+            <a href="/servicomodelview/list/?page_ServicoModelView=5" data-original-title="" title="">6</a>
+        </li>
+        
+    
+        
+        <li>
+            <a href="/servicomodelview/list/?page_ServicoModelView=6" data-original-title="" title="">7</a>
+        </li>
+        
+    
+
+    
+        <li>
+            <a href="/servicomodelview/list/?page_ServicoModelView=1" data-original-title="" title="">&gt;</a>
+        </li>
+    
+    
+        <li>
+            <a href="/servicomodelview/list/?page_ServicoModelView=11" data-original-title="" title="">»</a>
+        </li>
+    
+</ul>
+
+
+    
+  
+
+
+<div class="btn-group">
+    <button type="button" class="btn btn-default btn-sm dropdown-toggle" data-toggle="dropdown">
+    Tamanho da página<span class="caret"></span>
+    </button>
+    <ul class="dropdown-menu" role="menu">
+        
+        
+            
+                <li><a href="/servicomodelview/list/?psize_ServicoModelView=25" data-original-title="" title="">25</a></li>
+            
+        
+        
+        
+            
+                <li><a href="/servicomodelview/list/?psize_ServicoModelView=50" data-original-title="" title="">50</a></li>
+            
+        
+        
+        
+            
+                <li><a href="/servicomodelview/list/?psize_ServicoModelView=75" data-original-title="" title="">75</a></li>
+            
+        
+        
+        
+            
+                <li><a href="/servicomodelview/list/?psize_ServicoModelView=100" data-original-title="" title="">100</a></li>
+            
+        
+        
+    </ul>
+</div>
+
+
+    
+    
+
+
+    
+    <a href="/back" class="btn btn-sm btn-default" data-toggle="tooltip" rel="tooltip" title="" data-original-title="Voltar">
+        <span class="sr-only">Voltar</span>
+        <i class="fa fa-arrow-left"></i>
+    </a>
+
+    <div class="pull-right">
+        <strong>Quantidade Registros:</strong> 113
+    </div>
+
+    
+</div>
+
+
+
+    
+    <div class="table-responsive">
+    <table class="table table-bordered table-hover">
+
+
+    
+    <thead>
+    <tr>
+        
+
+        
+            <th class="col-md-1 col-lg-1 col-sm-1 botoes"></th> <!--- Adicionada classe botoes -->
+        
+
+        
+            
+                
+                
+                    <th><a href="/servicomodelview/list/?_oc_ServicoModelView=nome&amp;_od_ServicoModelView=asc" data-original-title="" title="">Nome
+                        <i class="fa fa-arrows-v pull-right"></i></a></th>
+                
+            
+        
+            
+                <th>Contrato</th>
+            
+        
+            
+                
+                
+                    <th><a href="/servicomodelview/list/?_oc_ServicoModelView=escopo&amp;_od_ServicoModelView=asc" data-original-title="" title="">Escopo
+                        <i class="fa fa-arrows-v pull-right"></i></a></th>
+                
+            
+        
+            
+                
+                
+                    <th><a href="/servicomodelview/list/?_oc_ServicoModelView=entregaveis&amp;_od_ServicoModelView=asc" data-original-title="" title="">Entregaveis
+                        <i class="fa fa-arrows-v pull-right"></i></a></th>
+                
+            
+        
+            
+                
+                
+                    <th><a href="/servicomodelview/list/?_oc_ServicoModelView=atividades&amp;_od_ServicoModelView=asc" data-original-title="" title="">Atividades
+                        <i class="fa fa-arrows-v pull-right"></i></a></th>
+                
+            
+        
+            
+                
+                
+                    <th><a href="/servicomodelview/list/?_oc_ServicoModelView=faturavel&amp;_od_ServicoModelView=asc" data-original-title="" title="">Faturavel
+                        <i class="fa fa-arrows-v pull-right"></i></a></th>
+                
+            
+        
+    </tr>
+    </thead>
+
+
+    
+    
+        
+        <tbody><tr>
+            
+            
+                <td class="botoes"><center>
+                    
+    <div class="btn-group btn-group-xs" style="display: flex;">
+        
+            
+            
+            
+                
+                
+    <a href="/servicomodelview/show/105" class="btn btn-sm btn-default" data-toggle="tooltip" rel="tooltip" title="" data-original-title="Mostrar registro">
+        <span class="sr-only">Show</span>
+        <i class="fa fa-search"></i>
+    </a>
+
+            
+        
+        
+        
+    </div>
+
+                </center></td>
+            
+            
+                
+                
+                    <td>[Análise e Projeto] Concepção da Solução de TI (Item 1)</td>
+                
+            
+                
+                
+                    <td>015/2023 - GETEC</td>
+                
+            
+                
+                
+                    <td><p>Por Projeto/Módulo de Solução de TI.</p></td>
+                
+            
+                
+                
+                    <td><p>1. Documento de Visão do projeto/módulo de Solução de TI;&nbsp;<br>2. Visão do Produto, Product Canvas ou Lean Canvas (para projetos/iniciativas ágeis);&nbsp;<br>3. Atas de Reuniões (se aplicável).</p></td>
+                
+            
+                
+                
+                    <td><p>1. Entendimento do problema e contexto;<br>2. Realização de workshops para a construção da Proposta (Visão) da Solução Tecnológica para o problema identificado;<br>3. Documentação da proposta de solução de TI;<br>4. Validação da proposta de solução com áreas de negócio e técnicos;<br>5. Versionamento e publicação da documentação no repositório documental.<br><br>Atenção.: As reuniões de entendimento do problema, validação da proposta de solução ou quaisquer outras reuniões necessárias para a execução das atividades descritas acima estão inclusas nos esforços estimados para esse serviço e não devem ser faturadas separadamente.</p></td>
+                
+            
+                
+                
+                    <td>True</td>
+                
+            
+        </tr>
+    
+        
+        <tr>
+            
+            
+                <td class="botoes"><center>
+                    
+    <div class="btn-group btn-group-xs" style="display: flex;">
+        
+            
+            
+            
+                
+                
+    <a href="/servicomodelview/show/52" class="btn btn-sm btn-default" data-toggle="tooltip" rel="tooltip" title="" data-original-title="Mostrar registro">
+        <span class="sr-only">Show</span>
+        <i class="fa fa-search"></i>
+    </a>
+
+            
+        
+        
+        
+    </div>
+
+                </center></td>
+            
+            
+                
+                
+                    <td>[Análise e Projeto] Definição de Arquitetura da Solução (Item 5)</td>
+                
+            
+                
+                
+                    <td>015/2023 - GETEC</td>
+                
+            
+                
+                
+                    <td><p>Por Projeto/Módulo de Solução de TI.</p></td>
+                
+            
+                
+                
+                    <td><p>1. Documento de arquitetura com diagramas C4 (Contexto, Container, Componente);<br>2. Especificação de requisitos não funcionais (segurança, desempenho, escalabilidade, dentre outros);<br>3. Padrões tecnológicos definidos (frameworks, linguagens, integrações);<br>4. Decisões arquiteturais e respectivas justificativas técnicas.</p>
+<p>Deve ser utilizada apenas em cenários em que os padrões corporativos de Arquitetura pré-definidos forem insuficientes ou não aderentes e uma nova arquitetura for definida para a solução tecnológica.</p></td>
+                
+            
+                
+                
+                    <td><p>1. Estudo/análise das documentações de requisitos existentes;<br>2. Entrevistas com usuários-chave para revisão das necessidades;<br>3. Alteração na documentação de requisitos, fluxos e regras de negócio;<br>4. Validação das alterações de requisitos com áreas de negócio e técnicos;<br>5. Versionamento e publicação da documentação no repositório documental.</p>
+<p>Atenção.: As reuniões com usuários-chave para revisão de necessidades, validação dos requisitos ou quaisquer outras reuniões necessárias para a execução das atividades descritas acima estão inclusas nos esforços estimados para esse serviço e não devem ser faturadas separadamente.</p></td>
+                
+            
+                
+                
+                    <td>True</td>
+                
+            
+        </tr>
+    
+        
+        <tr>
+            
+            
+                <td class="botoes"><center>
+                    
+    <div class="btn-group btn-group-xs" style="display: flex;">
+        
+            
+            
+            
+                
+                
+    <a href="/servicomodelview/show/55" class="btn btn-sm btn-default" data-toggle="tooltip" rel="tooltip" title="" data-original-title="Mostrar registro">
+        <span class="sr-only">Show</span>
+        <i class="fa fa-search"></i>
+    </a>
+
+            
+        
+        
+        
+    </div>
+
+                </center></td>
+            
+            
+                
+                
+                    <td>[Análise e Projeto] Documentação Customizada de Solução (Item 7)</td>
+                
+            
+                
+                
+                    <td>015/2023 - GETEC</td>
+                
+            
+                
+                
+                    <td><p>Por hora de documentação.</p></td>
+                
+            
+                
+                
+                    <td><p>1. Documento técnico específico e customizado, elaborado sob demanda e exclusivamente mediante solicitação formal do demandante (ex: instruções de integração com legado, templates adaptados a sistemas específicos fora dos padrões institucionais, dentre outros).</p>
+<p>Deve ser utilizado exclusivamente para a elaboração de documentos não contemplados em quaisquer outras atividades do Catálogo de Serviços.</p></td>
+                
+            
+                
+                
+                    <td><p>1. Levantamento das lacunas não cobertas pelos modelos padrão;<br>2. Redação e estruturação, em linguagem técnica clara, de documentações específicas / customizadas de soluções de TI que exijam um detalhamento diferenciado, não atendido pelos documentos padrões previstos;<br>3. Validação com solicitante ou equipe de QA/técnica;<br>4. Versionamento e publicação no repositório documental.</p></td>
+                
+            
+                
+                
+                    <td>True</td>
+                
+            
+        </tr>
+    
+        
+        <tr>
+            
+            
+                <td class="botoes"><center>
+                    
+    <div class="btn-group btn-group-xs" style="display: flex;">
+        
+            
+            
+            
+                
+                
+    <a href="/servicomodelview/show/131" class="btn btn-sm btn-default" data-toggle="tooltip" rel="tooltip" title="" data-original-title="Mostrar registro">
+        <span class="sr-only">Show</span>
+        <i class="fa fa-search"></i>
+    </a>
+
+            
+        
+        
+        
+    </div>
+
+                </center></td>
+            
+            
+                
+                
+                    <td>[Análise e Projeto] Elaboração do Projeto da Solução de TI (Item 50a)</td>
+                
+            
+                
+                
+                    <td>015/2023 - GETEC</td>
+                
+            
+                
+                
+                    <td><p>Com Duração até 3 meses</p></td>
+                
+            
+                
+                
+                    <td><p>Planejamento do projeto, composto de atividades com estimativas e marcos, Estrutura Analítica do Projeto (EAP).</p></td>
+                
+            
+                
+                
+                    <td><p>&nbsp;- Elaboração da estrutura organizacional do projeto (EAP)<br>&nbsp;- Elaboração do cronograma detalhado com as atividades do projeto<br>&nbsp;- Determinar os recursos necessários (equipe, orçamento, equipamentos etc.)<br>&nbsp;- Identificar os riscos e desenvolver um plano de gerenciamento de riscos<br>&nbsp;- Documento de Mudança de Escopo</p></td>
+                
+            
+                
+                
+                    <td>True</td>
+                
+            
+        </tr>
+    
+        
+        <tr>
+            
+            
+                <td class="botoes"><center>
+                    
+    <div class="btn-group btn-group-xs" style="display: flex;">
+        
+            
+            
+            
+                
+                
+    <a href="/servicomodelview/show/134" class="btn btn-sm btn-default" data-toggle="tooltip" rel="tooltip" title="" data-original-title="Mostrar registro">
+        <span class="sr-only">Show</span>
+        <i class="fa fa-search"></i>
+    </a>
+
+            
+        
+        
+        
+    </div>
+
+                </center></td>
+            
+            
+                
+                
+                    <td>[Análise e Projeto] Elaboração do Projeto da Solução de TI (Item 50b)</td>
+                
+            
+                
+                
+                    <td>015/2023 - GETEC</td>
+                
+            
+                
+                
+                    <td><p>Com Duração até 6 meses</p></td>
+                
+            
+                
+                
+                    <td><p>Planejamento do projeto, composto de atividades com estimativas e marcos, Estrutura Analítica do Projeto (EAP).</p></td>
+                
+            
+                
+                
+                    <td><p>&nbsp;- Elaboração da estrutura organizacional do projeto (EAP)<br>&nbsp;- Elaboração do cronograma detalhado com as atividades do projeto<br>&nbsp;- Determinar os recursos necessários (equipe, orçamento, equipamentos etc.)<br>&nbsp;- Identificar os riscos e desenvolver um plano de gerenciamento de riscos<br>&nbsp;- Documento de Mudança de Escopo</p></td>
+                
+            
+                
+                
+                    <td>True</td>
+                
+            
+        </tr>
+    
+        
+        <tr>
+            
+            
+                <td class="botoes"><center>
+                    
+    <div class="btn-group btn-group-xs" style="display: flex;">
+        
+            
+            
+            
+                
+                
+    <a href="/servicomodelview/show/135" class="btn btn-sm btn-default" data-toggle="tooltip" rel="tooltip" title="" data-original-title="Mostrar registro">
+        <span class="sr-only">Show</span>
+        <i class="fa fa-search"></i>
+    </a>
+
+            
+        
+        
+        
+    </div>
+
+                </center></td>
+            
+            
+                
+                
+                    <td>[Análise e Projeto] Elaboração do Projeto da Solução de TI (Item 50c)</td>
+                
+            
+                
+                
+                    <td>015/2023 - GETEC</td>
+                
+            
+                
+                
+                    <td><p>Com Duração acima 6 meses</p></td>
+                
+            
+                
+                
+                    <td><p>Planejamento do projeto, composto de atividades com estimativas e marcos, Estrutura Analítica do Projeto (EAP).</p></td>
+                
+            
+                
+                
+                    <td><p>&nbsp;- Elaboração da estrutura organizacional do projeto (EAP)<br>&nbsp;- Elaboração do cronograma detalhado com as atividades do projeto<br>&nbsp;- Determinar os recursos necessários (equipe, orçamento, equipamentos etc.)<br>&nbsp;- Identificar os riscos e desenvolver um plano de gerenciamento de riscos<br>&nbsp;- Documento de Mudança de Escopo</p></td>
+                
+            
+                
+                
+                    <td>True</td>
+                
+            
+        </tr>
+    
+        
+        <tr>
+            
+            
+                <td class="botoes"><center>
+                    
+    <div class="btn-group btn-group-xs" style="display: flex;">
+        
+            
+            
+            
+                
+                
+    <a href="/servicomodelview/show/136" class="btn btn-sm btn-default" data-toggle="tooltip" rel="tooltip" title="" data-original-title="Mostrar registro">
+        <span class="sr-only">Show</span>
+        <i class="fa fa-search"></i>
+    </a>
+
+            
+        
+        
+        
+    </div>
+
+                </center></td>
+            
+            
+                
+                
+                    <td>[Análise e Projeto] Encerramento do Projeto da Solução de TI (Item 51a)</td>
+                
+            
+                
+                
+                    <td>015/2023 - GETEC</td>
+                
+            
+                
+                
+                    <td><p>Com Duração até 3 meses</p></td>
+                
+            
+                
+                
+                    <td><p>1. Relatório final da iniciativa, contendo o cumprimento do cronograma, marcos alcançados, desvios ocorridos e justificativas;<br>2.Backlog final da solução, com registro das entregas concluídas, pendências remanescentes e eventuais débitos técnicos;<br>3.Relatório de riscos, com avaliação dos riscos ocorridos, eficácia dos planos de resposta e lições aprendidas;<br>4.Relatório de comunicação final, apresentando a consolidação dos artefatos de reporte, principais interlocuções e resultados de alinhamento;<br>5.Matriz atualizada de stakeholders, com registro do grau de satisfação, percepções e feedbacks coletados;<br>6.Relatório de desempenho da equipe, destacando a execução das responsabilidades, entregas realizadas e recomendações para futuros projetos;<br>7.Registro consolidado de impedimentos, com descrição dos incidentes resolvidos, pendências em aberto e respectivas tratativas;<br>8.Ata da reunião de encerramento, formalizando o aceite final do escopo entregue, lições aprendidas e próximos passos (se aplicável).</p></td>
+                
+            
+                
+                
+                    <td><p>1. Conduzir reuniões de encerramento e apresentação de resultados, promovendo o alinhamento final entre equipe técnica e representantes de negócio quanto às entregas realizadas, lições aprendidas e próximos passos;<br>2. Consolidar e revisar o cronograma ou roadmap técnico final, registrando marcos concluídos, desvios ocorridos, entregas pendentes e justificativas documentadas;<br>3. Atualizar o backlog da solução, destacando funcionalidades concluídas, débitos técnicos, itens remanescentes e recomendações para continuidade ou manutenção;<br>4. Registrar a conclusão dos ciclos de entrega (sprints, releases, marcos), apresentando a avaliação de performance da equipe e a aderência às metas e prazos estabelecidos;<br>6. Consolidar o plano de comunicação final, reunindo relatórios, atas, evidências de entregas e demais artefatos produzidos durante a execução;<br>7. Atualizar o mapeamento de stakeholders, incluindo feedbacks, percepções de valor e grau de satisfação com os resultados obtidos;<br>8. Organizar e arquivar todos os artefatos e registros do projeto, garantindo rastreabilidade, conformidade e disponibilidade para auditoria;<br>9. Elaborar o relatório final do projeto, contendo a síntese das entregas, resultados alcançados, indicadores de desempenho e recomendações para melhorias futuras;<br>10. Formalizar o aceite final das entregas, assegurando que todos os envolvidos compreendam o escopo efetivamente entregue, os critérios de aceite e o encerramento formal da iniciativa.</p>
+<p>Atenção.: As reuniões de encerramento, apresentações de resultados, revisões de backlog, reuniões de validação de lições aprendidas ou quaisquer outras necessárias para a execução das atividades descritas acima estão incluídas nos esforços estimados para este serviço e não devem ser faturadas separadamente.</p></td>
+                
+            
+                
+                
+                    <td>True</td>
+                
+            
+        </tr>
+    
+        
+        <tr>
+            
+            
+                <td class="botoes"><center>
+                    
+    <div class="btn-group btn-group-xs" style="display: flex;">
+        
+            
+            
+            
+                
+                
+    <a href="/servicomodelview/show/137" class="btn btn-sm btn-default" data-toggle="tooltip" rel="tooltip" title="" data-original-title="Mostrar registro">
+        <span class="sr-only">Show</span>
+        <i class="fa fa-search"></i>
+    </a>
+
+            
+        
+        
+        
+    </div>
+
+                </center></td>
+            
+            
+                
+                
+                    <td>[Análise e Projeto] Encerramento do Projeto da Solução de TI (Item 51b)</td>
+                
+            
+                
+                
+                    <td>015/2023 - GETEC</td>
+                
+            
+                
+                
+                    <td><p>Com Duração até 6 meses</p></td>
+                
+            
+                
+                
+                    <td><p>1. Relatório final da iniciativa, contendo o cumprimento do cronograma, marcos alcançados, desvios ocorridos e justificativas;<br>2.Backlog final da solução, com registro das entregas concluídas, pendências remanescentes e eventuais débitos técnicos;<br>3.Relatório de riscos, com avaliação dos riscos ocorridos, eficácia dos planos de resposta e lições aprendidas;<br>4.Relatório de comunicação final, apresentando a consolidação dos artefatos de reporte, principais interlocuções e resultados de alinhamento;<br>5.Matriz atualizada de stakeholders, com registro do grau de satisfação, percepções e feedbacks coletados;<br>6.Relatório de desempenho da equipe, destacando a execução das responsabilidades, entregas realizadas e recomendações para futuros projetos;<br>7.Registro consolidado de impedimentos, com descrição dos incidentes resolvidos, pendências em aberto e respectivas tratativas;<br>8.Ata da reunião de encerramento, formalizando o aceite final do escopo entregue, lições aprendidas e próximos passos (se aplicável).</p></td>
+                
+            
+                
+                
+                    <td><p>1. Conduzir reuniões de encerramento e apresentação de resultados, promovendo o alinhamento final entre equipe técnica e representantes de negócio quanto às entregas realizadas, lições aprendidas e próximos passos;<br>2. Consolidar e revisar o cronograma ou roadmap técnico final, registrando marcos concluídos, desvios ocorridos, entregas pendentes e justificativas documentadas;<br>3. Atualizar o backlog da solução, destacando funcionalidades concluídas, débitos técnicos, itens remanescentes e recomendações para continuidade ou manutenção;<br>4. Registrar a conclusão dos ciclos de entrega (sprints, releases, marcos), apresentando a avaliação de performance da equipe e a aderência às metas e prazos estabelecidos;<br>6. Consolidar o plano de comunicação final, reunindo relatórios, atas, evidências de entregas e demais artefatos produzidos durante a execução;<br>7. Atualizar o mapeamento de stakeholders, incluindo feedbacks, percepções de valor e grau de satisfação com os resultados obtidos;<br>8. Organizar e arquivar todos os artefatos e registros do projeto, garantindo rastreabilidade, conformidade e disponibilidade para auditoria;<br>9. Elaborar o relatório final do projeto, contendo a síntese das entregas, resultados alcançados, indicadores de desempenho e recomendações para melhorias futuras;<br>10. Formalizar o aceite final das entregas, assegurando que todos os envolvidos compreendam o escopo efetivamente entregue, os critérios de aceite e o encerramento formal da iniciativa.</p>
+<p>Atenção.: As reuniões de encerramento, apresentações de resultados, revisões de backlog, reuniões de validação de lições aprendidas ou quaisquer outras necessárias para a execução das atividades descritas acima estão incluídas nos esforços estimados para este serviço e não devem ser faturadas separadamente.</p></td>
+                
+            
+                
+                
+                    <td>True</td>
+                
+            
+        </tr>
+    
+        
+        <tr>
+            
+            
+                <td class="botoes"><center>
+                    
+    <div class="btn-group btn-group-xs" style="display: flex;">
+        
+            
+            
+            
+                
+                
+    <a href="/servicomodelview/show/138" class="btn btn-sm btn-default" data-toggle="tooltip" rel="tooltip" title="" data-original-title="Mostrar registro">
+        <span class="sr-only">Show</span>
+        <i class="fa fa-search"></i>
+    </a>
+
+            
+        
+        
+        
+    </div>
+
+                </center></td>
+            
+            
+                
+                
+                    <td>[Análise e Projeto] Encerramento do Projeto da Solução de TI (Item 51c)</td>
+                
+            
+                
+                
+                    <td>015/2023 - GETEC</td>
+                
+            
+                
+                
+                    <td><p>Com Duração acima 6 meses</p></td>
+                
+            
+                
+                
+                    <td><p>1. Relatório final da iniciativa, contendo o cumprimento do cronograma, marcos alcançados, desvios ocorridos e justificativas;<br>2.Backlog final da solução, com registro das entregas concluídas, pendências remanescentes e eventuais débitos técnicos;<br>3.Relatório de riscos, com avaliação dos riscos ocorridos, eficácia dos planos de resposta e lições aprendidas;<br>4.Relatório de comunicação final, apresentando a consolidação dos artefatos de reporte, principais interlocuções e resultados de alinhamento;<br>5.Matriz atualizada de stakeholders, com registro do grau de satisfação, percepções e feedbacks coletados;<br>6.Relatório de desempenho da equipe, destacando a execução das responsabilidades, entregas realizadas e recomendações para futuros projetos;<br>7.Registro consolidado de impedimentos, com descrição dos incidentes resolvidos, pendências em aberto e respectivas tratativas;<br>8.Ata da reunião de encerramento, formalizando o aceite final do escopo entregue, lições aprendidas e próximos passos (se aplicável).</p></td>
+                
+            
+                
+                
+                    <td><p>1. Conduzir reuniões de encerramento e apresentação de resultados, promovendo o alinhamento final entre equipe técnica e representantes de negócio quanto às entregas realizadas, lições aprendidas e próximos passos;<br>2. Consolidar e revisar o cronograma ou roadmap técnico final, registrando marcos concluídos, desvios ocorridos, entregas pendentes e justificativas documentadas;<br>3. Atualizar o backlog da solução, destacando funcionalidades concluídas, débitos técnicos, itens remanescentes e recomendações para continuidade ou manutenção;<br>4. Registrar a conclusão dos ciclos de entrega (sprints, releases, marcos), apresentando a avaliação de performance da equipe e a aderência às metas e prazos estabelecidos;<br>6. Consolidar o plano de comunicação final, reunindo relatórios, atas, evidências de entregas e demais artefatos produzidos durante a execução;<br>7. Atualizar o mapeamento de stakeholders, incluindo feedbacks, percepções de valor e grau de satisfação com os resultados obtidos;<br>8. Organizar e arquivar todos os artefatos e registros do projeto, garantindo rastreabilidade, conformidade e disponibilidade para auditoria;<br>9. Elaborar o relatório final do projeto, contendo a síntese das entregas, resultados alcançados, indicadores de desempenho e recomendações para melhorias futuras;<br>10. Formalizar o aceite final das entregas, assegurando que todos os envolvidos compreendam o escopo efetivamente entregue, os critérios de aceite e o encerramento formal da iniciativa.</p>
+<p>Atenção.: As reuniões de encerramento, apresentações de resultados, revisões de backlog, reuniões de validação de lições aprendidas ou quaisquer outras necessárias para a execução das atividades descritas acima estão incluídas nos esforços estimados para este serviço e não devem ser faturadas separadamente.</p></td>
+                
+            
+                
+                
+                    <td>True</td>
+                
+            
+        </tr>
+    
+        
+        <tr>
+            
+            
+                <td class="botoes"><center>
+                    
+    <div class="btn-group btn-group-xs" style="display: flex;">
+        
+            
+            
+            
+                
+                
+    <a href="/servicomodelview/show/57" class="btn btn-sm btn-default" data-toggle="tooltip" rel="tooltip" title="" data-original-title="Mostrar registro">
+        <span class="sr-only">Show</span>
+        <i class="fa fa-search"></i>
+    </a>
+
+            
+        
+        
+        
+    </div>
+
+                </center></td>
+            
+            
+                
+                
+                    <td>[Análise e Projeto] Estudo/Análise de Sistema Legado (Item 10)</td>
+                
+            
+                
+                
+                    <td>015/2023 - GETEC</td>
+                
+            
+                
+                
+                    <td><p>Por hora de estudo/análise ou participação em repasses de conhecimento (Limitado à 8 horas).</p></td>
+                
+            
+                
+                
+                    <td><p>1. Relatório técnico consolidando o entendimento do sistema legado;<br>2. Registro de reuniões e sessões de repasse com evidências (prints, gravações);<br>3. Manual técnico contendo regras de negócio e fluxos identificados.</p></td>
+                
+            
+                
+                
+                    <td><p>1. Análise de código-fonte, base de dados e documentação preexistente;<br>2. Participação em reuniões com membros da equipe técnica atual do sistema original;<br>3. Registro estruturado dos aprendizados técnicos e funcionais;<br>4. Armazenamento, versionamento e compartilhamento do material com novos desenvolvedores ou squads.</p>
+<p>Atenção.: As reuniões para absorção de conhecimentos ou quaisquer outras reuniões necessárias para a execução das atividades descritas acima estão inclusas nos esforços estimados para esse serviço e não devem ser faturadas separadamente.</p></td>
+                
+            
+                
+                
+                    <td>True</td>
+                
+            
+        </tr>
+    
+
+
+    
+    </tbody></table>
+    </div>
+
+
+    
+    
+        <form id="delete_form" action="" method="POST" style="display: none">
+            
+            <input type="hidden" id="delete" name="delete">
+        </form>
+    
+
+
+    <script language="javascript">
+        $(document).ready(function() {
+            window.modelActions = new AdminActions();
+        });
+    </script>
+
+
+        </div>
+    
+
+
+  </div>
+</div>
+
+
+        </div>
+    </div>
+
+    
+        <footer>
+            <div class="img-rounded nav-fixed-bottom">
+                <div class="container">
+                    <div class="row img-rounded">
+    <hr><small>
+<div class="col-md-4">
+</div>
+<div class="col-md-4">
+</div>
+<div class="col-md-4">
+</div>
+</small></div><small>
+                </small></div><small>
+            </small></div><small>
+        </small></footer><small>
+    
+
+
+
+    <script src="/static/appbuilder/js/bootstrap.min.js"></script>
+    <script src="/static/appbuilder/datepicker/bootstrap-datepicker.js"></script>
+    <script src="/static/appbuilder/select2/select2.js"></script>
+    <script src="/static/appbuilder/js/ab.js"></script>
+
+
+
+
+
+
+
+
+</small></body></html>
